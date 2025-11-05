@@ -1,0 +1,403 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GrandLineBooks - Toko Buku Online</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --pirate-black: #1a1a1a;
+            --pirate-red: #d32f2f;
+            --pirate-gold: #ffd700;
+            --straw-yellow: #f4c430;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--pirate-black);
+            overflow-x: hidden;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background: linear-gradient(90deg, var(--pirate-black) 0%, #2d2d2d 100%);
+            padding: 15px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border-bottom: 3px solid var(--pirate-gold);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--pirate-gold) !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--pirate-gold) !important;
+        }
+
+        .btn-nav {
+            margin: 0 5px;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login {
+            background: transparent;
+            border: 2px solid var(--pirate-gold);
+            color: var(--pirate-gold);
+        }
+
+        .btn-login:hover {
+            background: var(--pirate-gold);
+            color: var(--pirate-black);
+        }
+
+        .btn-register {
+            background: linear-gradient(135deg, var(--pirate-red) 0%, #c62828 100%);
+            border: 2px solid var(--pirate-gold);
+            color: white;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.5);
+        }
+
+        /* Hero Section - FULL BLACK */
+        .hero-section {
+            background: var(--pirate-black);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+        }
+
+        .hero-icon {
+            font-size: 6rem;
+            color: var(--pirate-gold);
+            margin-bottom: 30px;
+            animation: floatAnimation 3s ease-in-out infinite;
+        }
+
+        @@keyframes floatAnimation {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--pirate-gold);
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--straw-yellow);
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons .btn {
+            margin: 10px;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero-primary {
+            background: linear-gradient(135deg, var(--pirate-red) 0%, #c62828 100%);
+            color: white;
+            border: 2px solid var(--pirate-gold);
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(211, 47, 47, 0.5);
+            color: white;
+        }
+
+        .btn-hero-secondary {
+            background: transparent;
+            color: var(--pirate-gold);
+            border: 2px solid var(--pirate-gold);
+        }
+
+        .btn-hero-secondary:hover {
+            background: var(--pirate-gold);
+            color: var(--pirate-black);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 20px;
+            background: var(--pirate-black);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--pirate-gold);
+            text-align: center;
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-card {
+            background: #2d2d2d;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 3px solid var(--pirate-gold);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+            border-color: var(--pirate-red);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--pirate-gold);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--pirate-gold);
+            margin-bottom: 15px;
+        }
+
+        .feature-desc {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(90deg, var(--pirate-black) 0%, #2d2d2d 100%);
+            color: white;
+            padding: 40px 20px 20px;
+            border-top: 4px solid var(--pirate-gold);
+        }
+
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--pirate-gold);
+            margin-bottom: 10px;
+        }
+
+        .footer-text {
+            color: var(--straw-yellow);
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--pirate-gold);
+        }
+
+        .footer-bottom {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            color: #999;
+        }
+
+        .footer-quote {
+            color: var(--straw-yellow);
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        @@media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-skull-crossbones"></i> GrandLineBooks
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Customer" asp-action="Catalog">Katalog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Tentang</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-nav btn-login">
+                        <i class="fas fa-sign-in-alt"></i> Masuk
+                    </a>
+                    <a asp-controller="Account" asp-action="Register" class="btn btn-nav btn-register">
+                        <i class="fas fa-user-plus"></i> Daftar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="text-center">
+            <div class="hero-icon">
+                <i class="fas fa-skull-crossbones"></i>
+            </div>
+            <h1 class="hero-title">⚓ Selamat Datang di GrandLineBooks! ⚓</h1>
+            <p class="hero-subtitle">
+                Temukan harta karun pengetahuan dan mulai petualangan membaca Anda menyeberangi Grand Line!
+            </p>
+            <div class="hero-buttons">
+                <a asp-controller="Customer" asp-action="Catalog" class="btn btn-hero-primary">
+                    <i class="fas fa-book"></i> Jelajahi Katalog
+                </a>
+                <a asp-controller="Account" asp-action="Register" class="btn btn-hero-secondary">
+                    <i class="fas fa-user-plus"></i> Gabung Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="section-title">🏴‍☠️ Kenapa Memilih GrandLineBooks? 🏴‍☠️</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="feature-title">📚 Koleksi Lengkap</h3>
+                        <p class="feature-desc">
+                            Ribuan buku dari berbagai genre dan penulis terbaik dunia. Temukan bacaan favorit Anda!
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <h3 class="feature-title">🚢 Pengiriman Cepat</h3>
+                        <p class="feature-desc">
+                            Gratis ongkir ke seluruh Indonesia. Buku sampai lebih cepat dari Thousand Sunny!
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3 class="feature-title">💎 Harga Terjangkau</h3>
+                        <p class="feature-desc">
+                            Dapatkan diskon dan penawaran menarik setiap hari. Buku berkualitas dengan harga terbaik!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="footer-brand">
+                <i class="fas fa-skull-crossbones"></i> GrandLineBooks
+            </div>
+            <p class="footer-text">
+                ⚓ Temukan Harta Karun Pengetahuan Anda ⚓
+            </p>
+            <div class="footer-links">
+                <a href="#home">Beranda</a>
+                <a asp-controller="Customer" asp-action="Catalog">Katalog</a>
+                <a href="#features">Tentang</a>
+                <a asp-controller="Account" asp-action="Login">Masuk</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GrandLineBooks. All Rights Reserved.</p>
+                <p class="footer-quote">
+                    "Aku akan menjadi Raja Para Pembaca!" - Monkey D. Reader 🏴‍☠️
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
