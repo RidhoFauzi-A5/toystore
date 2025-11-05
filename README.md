@@ -1,4 +1,15 @@
-# 🧸 Toy Store - Online Toy Shop System
+# Profil
+
+| Field | Keterangan |
+|-------|-----------|
+| **Nama** | Ridho fauzi |
+| **NIM** | 312310563 |
+| **Kelas** | TI.23.A.5 |
+| **Mata Kuliah** | Pemrograman Visual |
+| **Semester** | Ganjil 2024/2025 |
+
+
+# 🧸 ToyStore - Online Toy Store System
 
 <div align="center">
 
@@ -17,12 +28,12 @@
 
 ## 🎮 Tentang Project
 
-**Toy Store** adalah aplikasi web e-commerce berbasis ASP.NET Core MVC yang memungkinkan customer untuk berbelanja mainan secara online dan admin untuk mengelola inventori, pesanan, dan user dengan mudah. Sistem ini menggunakan MongoDB sebagai database dan menerapkan session-based authentication untuk keamanan.
+**ToyStore** adalah aplikasi web e-commerce berbasis ASP.NET Core MVC yang memungkinkan customer untuk berbelanja mainan secara online dan admin untuk mengelola inventori, pesanan, dan user dengan mudah. Sistem ini menggunakan MongoDB sebagai database dan menerapkan session-based authentication untuk keamanan.
 
 ### 🎯 Tujuan Project
 
 - Menyediakan platform online untuk transaksi jual-beli mainan
-- Memudahkan customer dalam mencari dan membeli mainan favorit
+- Memudahkan customer dalam mencari dan membeli mainan
 - Memberikan admin tools untuk mengelola toko secara efisien
 - Implementasi best practices dalam web development
 
@@ -39,7 +50,7 @@
 
 - **Shopping Experience**
   - Browse katalog mainan dengan detail lengkap
-  - View detail produk (nama, brand, harga, deskripsi, stok)
+  - View detail produk (name, brand, price, description, stock)
   - Add to cart dengan quantity selection
   - Update/remove items dari cart
   - Real-time cart total calculation
@@ -176,11 +187,11 @@ ToyStore/
 ├── Controllers/
 │   ├── AccountController.cs      # Authentication logic
 │   ├── AdminController.cs         # Admin dashboard & management
-│   ├── BooksController.cs         # Toy CRUD operations (legacy name)
+│   ├── ToysController.cs          # Toy CRUD operations
 │   ├── CustomerController.cs      # Customer features
 │   └── HomeController.cs          # Landing page
 ├── Models/
-│   ├── Book.cs                    # Toy entity (legacy name)
+│   ├── Toy.cs                     # Toy entity
 │   ├── Cart.cs                    # Shopping cart model
 │   ├── Order.cs                   # Order & OrderItem entities
 │   └── User.cs                    # User entity
@@ -198,10 +209,8 @@ ToyStore/
 │   └── images/                    # Static images
 ├── appsettings.json               # Configuration
 ├── Program.cs                     # Application entry point
-└── GrandLineBooks.csproj          # Project file (legacy name)
+└── ToyStore.csproj                # Project file
 ```
-
-> **Note:** Beberapa file masih menggunakan nama "Book" dan "GrandLineBooks" sebagai legacy code. Secara fungsional, ini digunakan untuk mengelola data mainan (toys).
 
 ---
 
@@ -224,19 +233,18 @@ ToyStore/
 }
 ```
 
-#### **books** (toys)
+#### **toys**
 ```json
 {
   "_id": ObjectId,
-  "title": String,              // Nama mainan
-  "author": String,             // Brand/Manufacturer
-  "isbn": String,               // SKU/Product Code
-  "category": String,           // Kategori mainan (Action Figure, Puzzle, dll)
+  "name": String,
+  "brand": String,
+  "category": String,
+  "ageRange": String,
   "price": Decimal,
   "stock": Integer,
   "description": String,
   "imageUrl": String,
-  "publishedDate": DateTime,    // Release date
   "createdAt": DateTime
 }
 ```
@@ -248,8 +256,8 @@ ToyStore/
   "customerId": ObjectId,
   "items": [
     {
-      "bookId": ObjectId,       // Toy ID
-      "bookTitle": String,      // Nama mainan
+      "toyId": ObjectId,
+      "toyName": String,
       "quantity": Integer,
       "price": Decimal
     }
@@ -260,23 +268,6 @@ ToyStore/
   "orderDate": DateTime
 }
 ```
-
----
-
-## 🎨 Kategori Mainan
-
-Sistem mendukung berbagai kategori mainan:
-
-- **Action Figures** - Superhero, anime, movie characters
-- **Dolls** - Barbie, baby dolls, fashion dolls
-- **Building Blocks** - LEGO, building sets
-- **Puzzles** - Jigsaw puzzles, 3D puzzles
-- **Board Games** - Family games, strategy games
-- **Remote Control** - RC cars, drones, robots
-- **Educational Toys** - STEM toys, learning games
-- **Outdoor Toys** - Bikes, scooters, sports equipment
-- **Plush Toys** - Stuffed animals, soft toys
-- **Arts & Crafts** - Drawing sets, craft kits
 
 ---
 
@@ -327,24 +318,21 @@ Sistem mendukung berbagai kategori mainan:
 - Email notification belum diimplementasi
 - Payment gateway belum terintegrasi
 - Stock management belum otomatis update saat order
-- Beberapa file masih menggunakan naming "Book" (legacy code)
 
 ---
 
-## � Futuere Improvements
+## 🚧 Future Improvements
 
-- [ ] Refactor code: Rename "Book" → "Toy" di semua file
 - [ ] Implement email notifications untuk order updates
 - [ ] Add payment gateway integration (Midtrans, etc.)
-- [ ] Advanced search & filter (by category, price range, brand, age group)
+- [ ] Advanced search & filter (by category, age range, brand, price)
 - [ ] Product reviews & ratings
 - [ ] Wishlist feature
 - [ ] Automatic stock update saat order completed
 - [ ] Admin analytics dashboard dengan charts
 - [ ] Export order reports (PDF, Excel)
 - [ ] Multi-language support
-- [ ] Age recommendation filter
-- [ ] Gift wrapping option
+- [ ] Toy recommendations based on age
 
 ---
 
@@ -368,6 +356,6 @@ Jika ada pertanyaan atau issue, silakan buat issue di repository ini.
 
 <div align="center">
 
-**Happy Shopping! 🎮🧸**
+**Happy Coding! 🚀**
 
 </div>
